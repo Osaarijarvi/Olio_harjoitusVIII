@@ -37,10 +37,9 @@ class Program
 
                     // create new instance for book
                     Library book = new Book(name, author, isbn);
+
                     // call for Addbook()
                     book.AddBook(name, author, isbn);
-
-                    Console.WriteLine();
                     break;
 
                 // b) removes a book to the library.
@@ -60,8 +59,7 @@ class Program
 
                 // d) stops the programme
                 case "d":
-                    isRunning = false;
-                    
+                    isRunning = false;                 
                     break;
 
             }
