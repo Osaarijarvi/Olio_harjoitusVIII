@@ -11,9 +11,14 @@ class Program
         // isRunning initialized
         bool isRunning = true;
 
+        // create new instance for library
+        Library collection = new Library();
+
+
         while (isRunning)
         {
             // User is asked to choose a function.
+            Console.WriteLine();
             Console.WriteLine("Valitse mitä haluat tehdä:");
             Console.WriteLine("a) Lisää kirja kirjastoon.");
             Console.WriteLine("b) Poista kirja kirjastosta.");
@@ -35,21 +40,18 @@ class Program
                     Console.WriteLine("Anna kirjan ISBN-numero:");
                     string isbn = Console.ReadLine();
 
-                    // create new instance for book
-                    Library book = new Book(name, author, isbn);
+                    Book book = new Book(name, author, isbn);
 
                     // call for Addbook()
-                    book.AddBook(name, author, isbn);
+                    collection.AddBook(book);
                     break;
 
-                // b) removes a book to the library.
+                /* b) removes a book to the library.
                 case "b":
                     Console.WriteLine("Anna poistettavan kirjan ISBN:");
                     string ISBNtoRemove = Console.ReadLine();
-
-                    Library collection = new Library();
                     collection.RemoveBook(ISBNtoRemove);
-                    break;
+                    break;*/
 
                 //c) lists all the books in the library collection.
                 case "c":

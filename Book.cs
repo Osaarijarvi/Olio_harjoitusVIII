@@ -2,8 +2,8 @@ namespace Olio_harjoitusVIII;
 
 // TASK 1 STEP 1
 
-// sub class "Book" created
-public class Book : Library
+// class "Book" created
+public class Book
 
 {
     // Member variables initialized
