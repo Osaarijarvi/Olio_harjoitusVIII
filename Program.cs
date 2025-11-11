@@ -47,7 +47,7 @@ class Program
                     collection.AddBook(book);
                     break;
 
-                // b) removes a book to the library.
+                // b) removes a book from the library.
                 case "b":
                     Console.WriteLine("Anna poistettavan kirjan ISBN:");
                     string ISBNtoRemove = Console.ReadLine()?.Trim();
