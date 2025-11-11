@@ -1,5 +1,8 @@
 # Olio_harjoitusVIII
 
+LINKKI GITHUB COPILOT KESKUSTELUUN
+https://github.com/copilot/share/c26342a6-4044-8474-b150-7c426062618e
+
 1. Tehtävä: Kirjaston kirjat
 
 Ohjelmassa on tarkoitus hallita kirjaston kirjakokoelmaa. Käyttäjä voi lisätä uusia kirjoja,
