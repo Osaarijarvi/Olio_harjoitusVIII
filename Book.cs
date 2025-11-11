@@ -10,16 +10,12 @@ public class Book
     private string name;
     private string author;
     private string isbn;
-        
+
     public string Name
     {
         get
         {
             return name;
-        }
-        set
-        {
-            name = value;
         }
     }
 
@@ -49,10 +45,16 @@ public class Book
 
 
     // Overloaded contructor
-        public Book(string name, string author, string isbn)
+    public Book(string name, string author, string isbn)
     {
         this.name = name;
         this.author = author;
         this.isbn = isbn;
+    }
+
+    public override string ToString()
+    {
+        //return $"{name} — {author} (ISBN: {isbn})";
+        return $"{name ?? "<unknown book name>"} — {author ?? "<unknown author name>"} — ISBN: {isbn ?? "<unknown isbn number>"}";
     }
 }

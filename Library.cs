@@ -19,33 +19,62 @@ public class Library
     // Method for adding books to the collection
     public void AddBook(Book book)
     {
-        Console.WriteLine($"Olio luotu: {book}.");
         collection.Add(book);
         Console.WriteLine($"{book.Name} lisätty.");
+        Console.WriteLine($"Kirjaston kokoelmassa on nyt {collection.Count} kirja(a).");
     }
 
 
-    /* Method for removing a book from the collection using ISBN
+    // Method for removing a book from the collection using ISBN
     public void RemoveBook(string ISBNtoRemove)
     {
-        if (collection.Contains(ISBNtoRemove))
+        Console.WriteLine($"DEBUG: RemoveBook called with '{ISBNtoRemove}'");
+        
+        if (string.IsNullOrWhiteSpace(ISBNtoRemove))
         {
-            collection.Remove(ISBNtoRemove);
-            Console.WriteLine($"{ISBNtoRemove} poistettu.");
+            Console.WriteLine("Anna kelvollinen ISBN.");
+            return;
+        }
+
+        // Normalize input: trim and remove common separators for comparison
+        string normalize(string s) => s?.Trim().Replace("-", "").Replace(" ", "");
+
+        string target = normalize(ISBNtoRemove);
+
+        // Print stored ISBNs for debugging
+        Console.WriteLine("DEBUG: Stored ISBNs:");
+        foreach (var b in collection)
+        {
+            Console.WriteLine($" - '{b.ISBN}' (normalized: '{normalize(b.ISBN)}')");
+        }
+
+        // Find the book with matching ISBN
+        Book book = collection.FirstOrDefault(b => b.ISBN == ISBNtoRemove);
+
+        if (book != null)
+        {
+            collection.Remove(book);
+            Console.WriteLine($"{book.Name} (ISBN: {book.ISBN}) poistettu.");
+            Console.WriteLine($"DEBUG: collection count = {collection.Count}");
         }
         else
         {
-            Console.WriteLine("Väärä ISBN-numero. Kirjoita numero uudestaan.");     }
-    }*/
-
+            Console.WriteLine("Väärä ISBN-numero. Kirjoita numero uudestaan.");
+        }
+    }
 
     //Method for listing books of the collection
     public void ListBooks()
     {
-        foreach (Book book in collection)
+        if (collection.Count == 0)
         {
-            Console.WriteLine(book);
+            Console.WriteLine("Kokoelmassa ei ole kirjoja.");
         }
+        else
+            foreach (Book book in collection)
+            {
+                Console.WriteLine(book);
+            }
     }
 }
     

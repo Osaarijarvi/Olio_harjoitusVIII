@@ -25,8 +25,9 @@ class Program
             Console.WriteLine("c) Listaa kirjaston kirjat.");
             Console.WriteLine("d) Lopeta ohjelma.");
 
-
-            string input = Console.ReadLine();
+            // Make input case-insensitive and trim whitespace
+            string input = Console.ReadLine()?.Trim().ToLower();
+            Console.WriteLine($"DEBUG: menu input = '{input}'");
 
             switch (input)
             {
@@ -46,12 +47,13 @@ class Program
                     collection.AddBook(book);
                     break;
 
-                /* b) removes a book to the library.
+                // b) removes a book to the library.
                 case "b":
                     Console.WriteLine("Anna poistettavan kirjan ISBN:");
-                    string ISBNtoRemove = Console.ReadLine();
+                    string ISBNtoRemove = Console.ReadLine()?.Trim();
+                    Console.WriteLine($"DEBUG: input ISBN to remove = '{ISBNtoRemove}'");
                     collection.RemoveBook(ISBNtoRemove);
-                    break;*/
+                    break;
 
                 //c) lists all the books in the library collection.
                 case "c":
@@ -61,9 +63,12 @@ class Program
 
                 // d) stops the programme
                 case "d":
-                    isRunning = false;                 
+                    isRunning = false;
                     break;
-
+                
+                default:
+                    Console.WriteLine("Tuntematon valinta. Kirjoita a, b, c tai d.");
+                    break;
             }
         }
     }
