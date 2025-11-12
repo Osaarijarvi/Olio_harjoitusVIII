@@ -52,6 +52,7 @@ public class Book
         this.isbn = isbn;
     }
 
+    // Override ToString() returns a readable representation of the book.
     public override string ToString()
     {
         //return $"{name} — {author} (ISBN: {isbn})";
